@@ -3,7 +3,7 @@ const Header = () => {
     <div>
     <div className="p-4 flex justify-between  fixed top-0 left-0 w-full z-[9999]  bg-black">
         <div className="flex items-center space-x-4">
-            <h1 className="text-[40px] text-red-700 uppercase font-bold">PHIM VỊT</h1>
+            <h1 className="text-[40px] text-red-700 uppercase font-bold">PHIM HEO</h1>
             <nav className="flex items-center space-x-4">
                 <a href="" className="text-white">Home</a>
                 <a href="" className="text-white">About</a>
