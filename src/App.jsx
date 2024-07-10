@@ -3,9 +3,21 @@ import Header from "./components/Header";
 import Banner from "./components/Banner";
 import MovieList from "./components/MovieList";
 
+
 function App() {
   const [movie, setMovie] = useState([]);
   const [movieRate, setMovieRate] = useState([]);
+  // const [MovieSearch, setMovieSearch] = useState([]);
+
+  // handleSearch = async (searchValue) => {
+  //   try {
+      
+  //   } catch (error) {
+      
+  //   }
+  // }
+
+
 
   useEffect(() => {
 
@@ -21,10 +33,10 @@ function App() {
       };
 
       // URL để gọi API lấy dữ liệu phim phổ biến
-      const url1 = 'https://api.themoviedb.org/3/tv/popular?language=vi&page=1';
+      const url1 = 'https://api.themoviedb.org/3/movie/popular?language=vi&page=1';
 
       // URL để gọi API lấy dữ liệu phim được đánh giá cao nhẩt
-      const url2 = 'https://api.themoviedb.org/3/tv/top_rated?language=vi&page=1';
+      const url2 = 'https://api.themoviedb.org/3/movie/top_rated?language=vi&page=1';
 
       const [response1, response2] = await Promise.all([
         fetch(url1, options),
@@ -35,6 +47,7 @@ function App() {
 
       setMovie(data1.results);
       setMovieRate(data2.results);
+      console.log(data1.results);
     };
     fetchMovie();
   }, []);
@@ -44,8 +57,8 @@ function App() {
       <div className="bg-black pd-10">
         <Header />
         <Banner />
-        <MovieList title={"sex gay"} data={movie.slice(0, 5)} />
-        <MovieList title={"sex non-gay"} data={movieRate.slice(0, 5)} />
+        <MovieList title={"sex gay"} data={movie} />
+        <MovieList title={"sex non-gay"} data={movieRate} />
       </div>
     </>
   );
